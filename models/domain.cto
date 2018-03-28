@@ -1,0 +1,32 @@
+/**
+ * Fake News domain model
+ */
+namespace domain
+asset News identified by news_id {
+    o String news_id
+    o Boolean published
+    o Boolean validated
+    --> Member[] validators
+}
+
+participant Member identified by member_identification {
+    o String member_identification
+    o Double rating
+}
+
+transaction Publish_Vote {
+    --> News news
+    --> Member voter
+    o Boolean vote
+    o Event event_type
+    o Source[] sources
+}
+
+concept Source {
+  o String source regex=/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/  
+}
+
+enum Event {
+    o PUBLISH 
+    o VOTE 
+}

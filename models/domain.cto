@@ -6,6 +6,7 @@ asset News identified by news_id {
     o String news_id
     o Boolean published
     o Boolean validated
+    o Boolean validationResult
     --> Member[] validators
 }
 

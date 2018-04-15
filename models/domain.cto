@@ -4,6 +4,8 @@
 namespace domain
 asset News identified by news_id {
     o String news_id
+    o String title
+    o String text
     o Boolean published
     o Boolean validated
     o Boolean validationResult
@@ -21,6 +23,11 @@ transaction Publish_Vote {
     o Boolean vote
     o Event event_type
     o Source[] sources
+}
+
+transaction Register_News {
+   o String title
+   o String text
 }
 
 concept Source {

@@ -1,7 +1,7 @@
 /**
  * Fake News domain model
  */
-namespace domain
+namespace org.acme.biznet
 asset News identified by news_id {
     o String news_id
     o String title
@@ -22,7 +22,7 @@ transaction Publish_Vote {
     --> Member voter
     o Boolean vote
     o Event event_type
-    o Source[] sources
+    //o Source[] sources
 }
 
 transaction Register_News {
@@ -31,10 +31,10 @@ transaction Register_News {
 }
 
 concept Source {
-  o String source regex=/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/  
+  o String source regex=/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/
 }
 
 enum Event {
-    o PUBLISH 
-    o VOTE 
+    o PUBLISH
+    o VOTE
 }
